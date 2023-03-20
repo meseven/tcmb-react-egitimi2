@@ -25,12 +25,11 @@ function App() {
         text='Deneme'
         color='yellow'
         numberOfLines={2}
-        isHidden={false}
+        isHidden={true}
       /> */}
 
       {/* <User data={{ id: 1, name: 'Filiz' }} /> */}
-
-      <Users data={users} />
+      <Users data={users} handleClick={() => alert(users.length)} />
     </div>
   );
 }
