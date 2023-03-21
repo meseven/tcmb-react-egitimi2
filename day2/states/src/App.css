@@ -44,3 +44,27 @@
 .data {
   font-size: 22px;
 }
+
+.delete_button {
+  padding: 2px 8px;
+  background-color: bisque;
+  color: black;
+  border-radius: 3px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.delete_button:hover {
+  background-color: rgb(224, 200, 171);
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -7,6 +7,29 @@ function Counter() {
   const handleClick = () => {
     setCount((prev) => prev + 1);
   };
+
+  // useEffect(() => {
+  //   console.log('Bir state değişti');
+  // });
+
+  // useEffect(() => {
+  //   console.log('count state değişti.');
+  // }, [count]);
+
+  // useEffect(() => {
+  //   console.log('amount state değişti.');
+  // }, [amount]);
+
+  useEffect(() => {
+    console.log('Counter component mount edildi.');
+
+    const interval = setInterval(() => {
+      console.log('interval çalıştı');
+      setCount((prev) => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>

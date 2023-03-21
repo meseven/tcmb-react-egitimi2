@@ -1,38 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import List from './List';
+import Form from './Form';
 
 function Users() {
-  const [data, setData] = useState([
-    {
-      id: 1,
-      name: 'John Doe',
-    },
-    {
-      id: 2,
-      name: 'Jane Doe',
-    },
-    {
-      id: 3,
-      name: 'John Smith',
-    },
-    {
-      id: 4,
-      name: 'Jane Smith',
-    },
-  ]);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleAdd = () => {
-    // setData([{ id: nanoid(), name: 'Kenan' }, ...data]);
-    setData((prev) => [{ id: nanoid(), name: 'Mete' }, ...prev]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((res) => res.json())
+      .then((users) => {
+        setData(users);
+        setLoading(false);
+      });
+  }, []);
+
+  const handleAdd = (name) => {
+    setData((prev) => [{ id: nanoid(), name }, ...prev]);
+  };
+
+  const handleDelete = (id) => {
+    setData((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
     <div>
-      <h2>Users</h2>
+      <h2>Users {data.length > 0 && <>({data.length})</>}</h2>
 
-      <List data={data} />
-      <button onClick={handleAdd}>Add</button>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <List data={data} handleDelete={handleDelete} />
+      )}
+      <Form handleAdd={handleAdd} />
     </div>
   );
 }

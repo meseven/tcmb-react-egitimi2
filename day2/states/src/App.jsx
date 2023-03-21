@@ -1,3 +1,4 @@
+// import { useState } from 'react';
 import './App.css';
 // import Header from './components/Header';
 // import Counter from './components/Counter';
@@ -5,12 +6,18 @@ import './App.css';
 import Users from './components/Users';
 
 function App() {
+  // const [isVisible, setIsVisible] = useState(true);
+
   return (
     <div className='App'>
       {/* <Header /> */}
-      {/* <Counter /> */}
       {/* <User /> */}
       <Users />
+
+      {/* <button onClick={() => setIsVisible(!isVisible)}>
+        {isVisible ? 'Hide' : 'Show'}
+      </button>
+      {isVisible && <Counter />} */}
     </div>
   );
 }
