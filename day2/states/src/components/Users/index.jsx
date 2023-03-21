@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import List from './List';
 import Form from './Form';
-import axios from 'axios';
 import Loading from '../Loading';
 import Error from '../Error';
 import useFetch from '../../hooks/useFetch';
+import { useState } from 'react';
 
 function Users() {
-  const { data, error, loading } = useFetch(
+  const [endpoint, setEndpoint] = useState(
     'https://jsonplaceholder.typicode.com/users'
   );
 
-  const handleAdd = (name) => {
-    setData((prev) => [{ id: nanoid(), name }, ...prev]);
+  const { data, error, loading, setData } = useFetch(endpoint);
+
+  const handleAdd = (username) => {
+    setData((prev) => [{ id: nanoid(), username }, ...prev]);
   };
 
   const handleDelete = (id) => {
@@ -30,6 +31,10 @@ function Users() {
 
   return (
     <div>
+      <button onClick={() => setEndpoint('https://dummyjson.com/users')}>
+        Change Endpoint
+      </button>
+
       <h2>Users {data.length > 0 && <>({data.length})</>}</h2>
       <List data={data} handleDelete={handleDelete} />
       <Form handleAdd={handleAdd} />
