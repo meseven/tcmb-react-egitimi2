@@ -1,13 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
+import loadable from '@loadable/component';
+// import Loading from './components/Loading';
 
 // pages
 import Home from './pages/Dashboard/Home';
-import About from './pages/Dashboard/About';
 import Users from './pages/Dashboard/Users';
 import UserDetail from './pages/Dashboard/UserDetail';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import ForgotPassword from './pages/Auth/ForgotPassword';
+
+const About = loadable(() => import('./pages/Dashboard/About'));
 
 // layouts
 import DashboardLayout from './layouts/DashboardLayout';

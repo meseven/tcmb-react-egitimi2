@@ -80,3 +80,8 @@
 .auth_menu > a {
   color: #ddd;
 }
+
+.animation {
+  width: 300px;
+  height: 300px;
+}
