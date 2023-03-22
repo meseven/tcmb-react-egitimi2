@@ -1,0 +1,82 @@
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 8px;
+  gap: 8px;
+  border-bottom: solid 1px #302f2f;
+}
+
+.menu li a {
+  color: #fff;
+  font-size: 1.19rem;
+}
+
+.menu li a:hover {
+  color: #908f8f;
+}
+
+.content {
+  padding: 20px 8px;
+}
+
+.item {
+  font-size: 1.1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footer {
+  border-top: solid 1px #302f2f;
+  padding: 8px;
+}
+
+#root {
+  height: 100vh;
+}
+
+.auth_layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth_content {
+  border: solid 2px #626161;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > div input {
+  padding: 10px;
+}
+
+.auth_menu {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.auth_menu > a {
+  color: #ddd;
+}
