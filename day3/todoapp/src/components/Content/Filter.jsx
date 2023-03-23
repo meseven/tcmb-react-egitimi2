@@ -1,6 +1,8 @@
-import React from 'react';
+import { useTodos } from '../../context/TodoContext';
 
-function Filter({ todos, activeFilter, setActiveFilter, clearCompleted }) {
+function Filter() {
+  const { todos, activeFilter, clearCompleted, setActiveFilter } = useTodos();
+
   const itemsLeft = todos.filter((todo) => !todo.completed).length;
 
   return (

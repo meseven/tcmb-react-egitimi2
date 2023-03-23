@@ -1,6 +1,8 @@
-import React from 'react';
+import { useTodos } from '../../../context/TodoContext';
 
-function Item({ todo, toggleTodo, deleteTodo }) {
+function Item({ todo }) {
+  const { toggleTodo, deleteTodo } = useTodos();
+
   return (
     <li className={todo.completed ? 'completed' : ''}>
       <div className='view'>

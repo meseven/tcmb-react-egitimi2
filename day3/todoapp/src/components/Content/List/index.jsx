@@ -1,17 +1,14 @@
-import React from 'react';
+import { useTodos } from '../../../context/TodoContext';
 import Item from './Item';
 
-function List({ todos, toggleTodo, deleteTodo, activeFilter }) {
+function List() {
+  const { todos, activeFilter } = useTodos();
+
   return (
     <section className='main'>
       <ul className='todo-list'>
         {getFilteredData(todos, activeFilter).map((todo) => (
-          <Item
-            todo={todo}
-            key={todo.id}
-            toggleTodo={toggleTodo}
-            deleteTodo={deleteTodo}
-          />
+          <Item todo={todo} key={todo.id} />
         ))}
       </ul>
     </section>

@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useTodos } from '../../context/TodoContext';
 
-function Header({ addTodo }) {
+function Header() {
   const [text, setText] = useState('');
+
+  const { addTodo } = useTodos();
 
   const handleSubmit = (event) => {
     event.preventDefault();
