@@ -1,9 +1,9 @@
-import { useTheme } from '../context/ThemeContext';
+import useThemeStore from '../store/useThemeStore';
 import Header from './Header';
 import Settings from './Settings';
 
 function Container() {
-  const { theme } = useTheme();
+  const theme = useThemeStore((state) => state.theme);
 
   return (
     <div className={`App ${theme}`}>

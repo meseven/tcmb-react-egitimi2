@@ -1,5 +1,5 @@
 {
-  "name": "context-api",
+  "name": "forms",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "zustand": "^4.3.6"
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

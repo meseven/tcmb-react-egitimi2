@@ -1,32 +1,14 @@
-import { useLang } from '../context/LangContext';
-import { useTheme } from '../context/ThemeContext';
+import useThemeStore from '../store/useThemeStore';
 
 function Settings() {
-  const { theme, setTheme } = useTheme();
-  const { lang, setLang } = useLang();
+  const theme = useThemeStore((state) => state.theme);
+  const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
   return (
     <div>
       Settings
       <div>Theme: {theme}</div>
-      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-        Change Theme
-      </button>
-      <br />
-      <br />
-      <div>Language: {lang}</div>
-      <button
-        onClick={() => setLang('en-US')}
-        className={lang === 'en-US' ? 'active' : ''}
-      >
-        EN
-      </button>
-      <button
-        onClick={() => setLang('tr-TR')}
-        className={lang === 'tr-TR' ? 'active' : ''}
-      >
-        TR
-      </button>
+      <button onClick={toggleTheme}>Change Theme</button>
     </div>
   );
 }

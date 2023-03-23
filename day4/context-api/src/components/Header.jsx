@@ -1,17 +1,16 @@
 import { useLang } from '../context/LangContext';
-import { useTheme } from '../context/ThemeContext';
+import useThemeStore from '../store/useThemeStore';
 
 function Header() {
-  const { theme, setTheme, name } = useTheme();
+  const theme = useThemeStore((state) => state.theme);
+  const toggleTheme = useThemeStore((state) => state.toggleTheme);
   const { lang } = useLang();
 
   return (
     <div>
       <div>Active Theme: {theme}</div>
       <div>Active Language: {lang}</div>
-      <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-        Change Theme
-      </button>
+      <button onClick={toggleTheme}>Change Theme</button>
 
       <br />
 
