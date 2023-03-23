@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import LangContext from '../context/LangContext';
-import ThemeContext from '../context/ThemeContext';
+import { useLang } from '../context/LangContext';
+import { useTheme } from '../context/ThemeContext';
 
 function Header() {
-  const { theme, setTheme, name } = useContext(ThemeContext);
-  const { lang } = useContext(LangContext);
+  const { theme, setTheme, name } = useTheme();
+  const { lang } = useLang();
 
   return (
     <div>

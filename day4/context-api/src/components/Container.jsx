@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import ThemeContext from '../context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 import Header from './Header';
 import Settings from './Settings';
 
 function Container() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
 
   return (
     <div className={`App ${theme}`}>

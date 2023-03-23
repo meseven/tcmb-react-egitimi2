@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
-import LangContext from '../context/LangContext';
-import ThemeContext from '../context/ThemeContext';
+import { useLang } from '../context/LangContext';
+import { useTheme } from '../context/ThemeContext';
 
 function Settings() {
-  const { theme, setTheme } = useContext(ThemeContext);
-  const { lang, setLang } = useContext(LangContext);
+  const { theme, setTheme } = useTheme();
+  const { lang, setLang } = useLang();
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const LangContext = createContext();
 
@@ -12,4 +12,12 @@ export const LangContextProvider = ({ children }) => {
   );
 };
 
-export default LangContext;
+export const useLang = () => {
+  const context = useContext(LangContext);
+
+  if (context === undefined) {
+    throw new Error('useLang hook must be call inside LangContextProvider');
+  }
+
+  return context;
+};

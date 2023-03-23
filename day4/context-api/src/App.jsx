@@ -4,14 +4,17 @@ import { LangContextProvider } from './context/LangContext';
 
 // components
 import Container from './components/Container';
+import Header from './components/Header';
 
 function App() {
   return (
-    <LangContextProvider>
-      <ThemeContextProvider>
-        <Container />
-      </ThemeContextProvider>
-    </LangContextProvider>
+    <>
+      <LangContextProvider>
+        <ThemeContextProvider>
+          <Container />
+        </ThemeContextProvider>
+      </LangContextProvider>
+    </>
   );
 }
 
